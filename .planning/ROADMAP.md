@@ -14,7 +14,7 @@ None
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Foundation** — Setup projet, stack technique, structure de base
+- [x] **Phase 1: Foundation** — Setup projet, stack technique, structure de base
 - [ ] **Phase 2: Database & Models** — Schéma BDD, modèles de données
 - [ ] **Phase 3: Authentication** — Inscription, connexion, gestion sessions
 - [ ] **Phase 4: Sessions Core** — CRUD séances individuelles
@@ -31,7 +31,8 @@ None
 **Goal**: Projet fonctionnel avec stack technique configurée (Next.js frontend, API backend, base de données)
 **Depends on**: Nothing (first phase)
 **Research**: Unlikely (established patterns)
-**Plans**: TBD
+**Plans**: 1/1 complete
+**Status**: Complete (2026-01-26)
 
 ### Phase 2: Database & Models
 **Goal**: Schéma complet avec modèles User, Session, Program, Exercise et relations
@@ -96,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 1/1 | Complete | 2026-01-26 |
 | 2. Database & Models | 0/? | Not started | - |
 | 3. Authentication | 0/? | Not started | - |
 | 4. Sessions Core | 0/? | Not started | - |
