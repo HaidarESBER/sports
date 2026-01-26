@@ -1,0 +1,108 @@
+# Roadmap: SportPlan
+
+## Overview
+
+Construire une plateforme communautaire de planification sportive en 10 phases. On commence par les fondations techniques, puis on construit les fonctionnalités core (séances, programmes), on ajoute les aspects sociaux (profils, discovery, interactions), et on termine par le suivi de progression — la valeur core du produit.
+
+## Domain Expertise
+
+None
+
+## Phases
+
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+
+- [ ] **Phase 1: Foundation** — Setup projet, stack technique, structure de base
+- [ ] **Phase 2: Database & Models** — Schéma BDD, modèles de données
+- [ ] **Phase 3: Authentication** — Inscription, connexion, gestion sessions
+- [ ] **Phase 4: Sessions Core** — CRUD séances individuelles
+- [ ] **Phase 5: Programs Core** — Assemblage séances en programmes
+- [ ] **Phase 6: User Profiles** — Profils publics, système followers
+- [ ] **Phase 7: Discovery** — Recherche et exploration de programmes
+- [ ] **Phase 8: Progression Tracking** — Historique, stats, graphiques
+- [ ] **Phase 9: Social Features** — Partage, feed, interactions
+- [ ] **Phase 10: Polish & Launch** — UI/UX final, optimisations
+
+## Phase Details
+
+### Phase 1: Foundation
+**Goal**: Projet fonctionnel avec stack technique configurée (Next.js frontend, API backend, base de données)
+**Depends on**: Nothing (first phase)
+**Research**: Unlikely (established patterns)
+**Plans**: TBD
+
+### Phase 2: Database & Models
+**Goal**: Schéma complet avec modèles User, Session, Program, Exercise et relations
+**Depends on**: Phase 1
+**Research**: Unlikely (internal data modeling)
+**Plans**: TBD
+
+### Phase 3: Authentication
+**Goal**: Système d'authentification complet (inscription, connexion, logout, sessions sécurisées)
+**Depends on**: Phase 2
+**Research**: Likely (auth library choice, session strategy)
+**Research topics**: NextAuth.js vs Auth.js, JWT vs sessions, OAuth providers
+**Plans**: TBD
+
+### Phase 4: Sessions Core
+**Goal**: CRUD complet pour séances individuelles (créer, modifier, supprimer, lister)
+**Depends on**: Phase 3
+**Research**: Unlikely (internal CRUD patterns)
+**Plans**: TBD
+
+### Phase 5: Programs Core
+**Goal**: Création de programmes multi-semaines en assemblant des séances avec progression
+**Depends on**: Phase 4
+**Research**: Unlikely (internal composition logic)
+**Plans**: TBD
+
+### Phase 6: User Profiles
+**Goal**: Profils utilisateurs publics avec système followers/following
+**Depends on**: Phase 3
+**Research**: Unlikely (internal patterns)
+**Plans**: TBD
+
+### Phase 7: Discovery
+**Goal**: Recherche et exploration de programmes/séances (filtres par sport, niveau, durée)
+**Depends on**: Phase 4, Phase 5, Phase 6
+**Research**: Unlikely (internal query patterns)
+**Plans**: TBD
+
+### Phase 8: Progression Tracking
+**Goal**: Suivi de progression avec historique d'entraînements, statistiques et visualisations
+**Depends on**: Phase 4, Phase 5
+**Research**: Likely (charting library, stats calculations)
+**Research topics**: Chart.js vs Recharts vs Visx, performance metrics algorithms
+**Plans**: TBD
+
+### Phase 9: Social Features
+**Goal**: Feed d'activité, partage de programmes, likes et commentaires
+**Depends on**: Phase 6, Phase 7
+**Research**: Unlikely (internal patterns)
+**Plans**: TBD
+
+### Phase 10: Polish & Launch
+**Goal**: UI/UX finalisé, optimisations performance, préparation production
+**Depends on**: All previous phases
+**Research**: Unlikely (polish and optimization)
+**Plans**: TBD
+
+## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Foundation | 0/? | Not started | - |
+| 2. Database & Models | 0/? | Not started | - |
+| 3. Authentication | 0/? | Not started | - |
+| 4. Sessions Core | 0/? | Not started | - |
+| 5. Programs Core | 0/? | Not started | - |
+| 6. User Profiles | 0/? | Not started | - |
+| 7. Discovery | 0/? | Not started | - |
+| 8. Progression Tracking | 0/? | Not started | - |
+| 9. Social Features | 0/? | Not started | - |
+| 10. Polish & Launch | 0/? | Not started | - |
