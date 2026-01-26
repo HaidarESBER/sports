@@ -23,6 +23,7 @@ model User {
   updatedAt    DateTime @updatedAt
 
   // Relations
+  programs Program[]
   sessions Session[]
 }
 
@@ -57,9 +58,9 @@ model Session {
   authorId          String
 
   // Relations
-  author    User              @relation(fields: [authorId], references: [id])
-  exercises SessionExercise[]
-  // programSessions relation will be added with Program model in Task 3
+  author          User              @relation(fields: [authorId], references: [id])
+  exercises       SessionExercise[]
+  programSessions ProgramSession[]
 }
 
 // ============================================================================
@@ -84,4 +85,45 @@ model SessionExercise {
   exercise Exercise @relation(fields: [exerciseId], references: [id])
 
   @@unique([sessionId, exerciseId])
+}
+
+// ============================================================================
+// Program Model
+// ============================================================================
+
+model Program {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  sport         String
+  durationWeeks Int      // total weeks
+  difficulty    String?  // e.g., "beginner", "intermediate", "advanced"
+  isPublic      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  authorId      String
+
+  // Relations
+  author          User             @relation(fields: [authorId], references: [id])
+  programSessions ProgramSession[]
+}
+
+// ============================================================================
+// ProgramSession Junction Table
+// Program <-> Session many-to-many with scheduling (week, day, order)
+// ============================================================================
+
+model ProgramSession {
+  id         String @id @default(cuid())
+  programId  String
+  sessionId  String
+  weekNumber Int    // 1-based week in program
+  dayOfWeek  Int    // 1-7, Monday=1
+  order      Int    @default(0) // multiple sessions same day
+
+  // Relations
+  program Program @relation(fields: [programId], references: [id], onDelete: Cascade)
+  session Session @relation(fields: [sessionId], references: [id])
+
+  @@unique([programId, sessionId, weekNumber, dayOfWeek])
 }
