@@ -15,7 +15,7 @@ None
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
 - [x] **Phase 1: Foundation** — Setup projet, stack technique, structure de base
-- [ ] **Phase 2: Database & Models** — Schéma BDD, modèles de données
+- [x] **Phase 2: Database & Models** — Schéma BDD, modèles de données
 - [ ] **Phase 3: Authentication** — Inscription, connexion, gestion sessions
 - [ ] **Phase 4: Sessions Core** — CRUD séances individuelles
 - [ ] **Phase 5: Programs Core** — Assemblage séances en programmes
@@ -38,7 +38,8 @@ None
 **Goal**: Schéma complet avec modèles User, Session, Program, Exercise et relations
 **Depends on**: Phase 1
 **Research**: Unlikely (internal data modeling)
-**Plans**: TBD
+**Plans**: 1/1 complete
+**Status**: Complete (2026-01-26)
 
 ### Phase 3: Authentication
 **Goal**: Système d'authentification complet (inscription, connexion, logout, sessions sécurisées)
@@ -98,7 +99,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-26 |
-| 2. Database & Models | 0/? | Not started | - |
+| 2. Database & Models | 1/1 | Complete | 2026-01-26 |
 | 3. Authentication | 0/? | Not started | - |
 | 4. Sessions Core | 0/? | Not started | - |
 | 5. Programs Core | 0/? | Not started | - |
