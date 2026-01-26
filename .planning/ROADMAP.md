@@ -46,7 +46,8 @@ None
 **Depends on**: Phase 2
 **Research**: Likely (auth library choice, session strategy)
 **Research topics**: NextAuth.js vs Auth.js, JWT vs sessions, OAuth providers
-**Plans**: TBD
+**Plans**: 1/2 complete
+**Status**: In progress
 
 ### Phase 4: Sessions Core
 **Goal**: CRUD complet pour séances individuelles (créer, modifier, supprimer, lister)
@@ -100,7 +101,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete | 2026-01-26 |
 | 2. Database & Models | 1/1 | Complete | 2026-01-26 |
-| 3. Authentication | 0/? | Not started | - |
+| 3. Authentication | 1/2 | In progress | - |
 | 4. Sessions Core | 0/? | Not started | - |
 | 5. Programs Core | 0/? | Not started | - |
 | 6. User Profiles | 0/? | Not started | - |

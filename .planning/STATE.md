@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-26)
 
 **Core value:** Le suivi et la progression des utilisateurs doivent être impeccables
-**Current focus:** Phase 2 — Database & Models
+**Current focus:** Phase 3 — Authentication
 
 ## Current Position
 
-Phase: 2 of 10 (Database & Models)
-Plan: 1 of 1 in current phase
-Status: Phase complete
-Last activity: 2026-01-26 — Completed 02-01-PLAN.md
+Phase: 3 of 10 (Authentication)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-26 — Completed 03-01-PLAN.md
 
-Progress: ███░░░░░░░ 30%
+Progress: ████░░░░░░ 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 8 min
-- Total execution time: 0.42 hours
+- Total execution time: 0.55 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: ███░░░░░░░ 30%
 |-------|-------|-------|----------|
 | 01-foundation | 2/2 | 20 min | 10 min |
 | 02-database-models | 1/1 | 5 min | 5 min |
+| 03-authentication | 1/2 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (12 min), 01-02 (8 min), 02-01 (5 min)
-- Trend: Improving
+- Last 5 plans: 01-01 (12 min), 01-02 (8 min), 02-01 (5 min), 03-01 (8 min)
+- Trend: Stable
 
 ## Accumulated Context
 
@@ -51,6 +52,9 @@ Recent decisions affecting current work:
 | 02 | Junction tables for many-to-many | Allows storing metadata (order, parameters, scheduling) |
 | 02 | Exercise params on SessionExercise | Same exercise can have different params per session |
 | 02 | Program scheduling via week/day | Enables calendar-style program layouts |
+| 03 | Database sessions over JWT | Better security with server-side revocation |
+| 03 | Cookie-based middleware | Edge runtime compatible, validation server-side |
+| 03 | AuthSession model naming | Avoids conflict with training Session model |
 
 ### Deferred Issues
 
@@ -63,5 +67,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-26
-Stopped at: Completed 02-01-PLAN.md (Phase 2 complete)
+Stopped at: Completed 03-01-PLAN.md (1/2 plans in Phase 3)
 Resume file: None
