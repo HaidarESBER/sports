@@ -22,7 +22,8 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  // Relations (will be added as models are created)
+  // Relations
+  sessions Session[]
 }
 
 // ============================================================================
@@ -37,5 +38,50 @@ model Exercise {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  // Relations (will be added as models are created)
+  // Relations
+  sessionExercises SessionExercise[]
+}
+
+// ============================================================================
+// Session Model
+// ============================================================================
+
+model Session {
+  id                String   @id @default(cuid())
+  name              String
+  description       String?
+  sport             String
+  estimatedDuration Int?     // minutes
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  authorId          String
+
+  // Relations
+  author    User              @relation(fields: [authorId], references: [id])
+  exercises SessionExercise[]
+  // programSessions relation will be added with Program model in Task 3
+}
+
+// ============================================================================
+// SessionExercise Junction Table
+// Session <-> Exercise many-to-many with ordering and exercise parameters
+// ============================================================================
+
+model SessionExercise {
+  id         String  @id @default(cuid())
+  sessionId  String
+  exerciseId String
+  order      Int     @default(0)
+  sets       Int?
+  reps       Int?
+  duration   Int?    // seconds
+  distance   Int?    // meters
+  intensity  String? // e.g., "easy", "moderate", "hard", "max"
+  notes      String?
+
+  // Relations
+  session  Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  exercise Exercise @relation(fields: [exerciseId], references: [id])
+
+  @@unique([sessionId, exerciseId])
 }
