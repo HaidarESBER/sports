@@ -31,7 +31,7 @@ None
 **Goal**: Projet fonctionnel avec stack technique configurée (Next.js frontend, API backend, base de données)
 **Depends on**: Nothing (first phase)
 **Research**: Unlikely (established patterns)
-**Plans**: 1/1 complete
+**Plans**: 2/2 complete
 **Status**: Complete (2026-01-26)
 
 ### Phase 2: Database & Models
@@ -97,7 +97,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/1 | Complete | 2026-01-26 |
+| 1. Foundation | 2/2 | Complete | 2026-01-26 |
 | 2. Database & Models | 0/? | Not started | - |
 | 3. Authentication | 0/? | Not started | - |
 | 4. Sessions Core | 0/? | Not started | - |
