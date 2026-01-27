@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-26)
 
 **Core value:** Le suivi et la progression des utilisateurs doivent être impeccables
-**Current focus:** Phase 6 — User Profiles
+**Current focus:** Phase 7 — Discovery
 
 ## Current Position
 
-Phase: 6 of 10 (User Profiles)
-Plan: 2 of 2 in current phase
-Status: Complete
-Last activity: 2026-01-27 — Completed 06-02-PLAN.md (User Profiles UI)
+Phase: 7 of 10 (Discovery)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 07-01-PLAN.md (Discovery API)
 
-Progress: ████████░░ 80%
+Progress: ████████░░ 85%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 9 min
-- Total execution time: 1.5 hours
+- Total execution time: 1.6 hours
 
 **By Phase:**
 
@@ -33,9 +33,10 @@ Progress: ████████░░ 80%
 | 04-sessions-core | 2/2 | 22 min | 11 min |
 | 05-programs-core | 2/2 | 20 min | 10 min |
 | 06-user-profiles | 2/2 | 20 min | 10 min |
+| 07-discovery | 1/2 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 05-01 (8 min), 05-02 (12 min), 06-01 (8 min), 06-02 (12 min)
+- Last 5 plans: 05-02 (12 min), 06-01 (8 min), 06-02 (12 min), 07-01 (8 min)
 - Trend: Stable
 
 ## Accumulated Context
@@ -68,6 +69,9 @@ Recent decisions affecting current work:
 | 06 | Follow unique constraint | [followerId, followingId] prevents duplicate follows |
 | 06 | Private profile 404 | Non-owners see 404 for private profiles (not 403) |
 | 06 | Pagination defaults | page=1, limit=20, max=100 for all list endpoints |
+| 07 | Sessions filter by author visibility | Sessions discoverable if author.isPublic=true |
+| 07 | Users ordered by popularity | Most-followed users appear first in discovery |
+| 07 | isFollowing context | Authenticated viewers see follow status in discovery |
 
 ### Deferred Issues
 
@@ -80,6 +84,6 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 06-02-PLAN.md (User Profiles UI)
+Stopped at: Completed 07-01-PLAN.md (Discovery API)
 Resume file: None
-Next: Phase 07 (Discovery)
+Next: Execute 07-02-PLAN.md (Discovery UI)
