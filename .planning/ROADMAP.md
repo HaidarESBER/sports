@@ -20,7 +20,7 @@ None
 - [x] **Phase 4: Sessions Core** — CRUD séances individuelles
 - [x] **Phase 5: Programs Core** — Assemblage séances en programmes
 - [x] **Phase 6: User Profiles** — Profils publics, système followers
-- [ ] **Phase 7: Discovery** — Recherche et exploration de programmes
+- [x] **Phase 7: Discovery** — Recherche et exploration de programmes
 - [ ] **Phase 8: Progression Tracking** — Historique, stats, graphiques
 - [ ] **Phase 9: Social Features** — Partage, feed, interactions
 - [ ] **Phase 10: Polish & Launch** — UI/UX final, optimisations
@@ -74,8 +74,8 @@ None
 **Goal**: Recherche et exploration de programmes/séances (filtres par sport, niveau, durée)
 **Depends on**: Phase 4, Phase 5, Phase 6
 **Research**: Unlikely (internal query patterns)
-**Plans**: 1/2 complete (07-01 API done, 07-02 UI pending)
-**Status**: In progress
+**Plans**: 2/2 complete
+**Status**: Complete (2026-01-27)
 
 ### Phase 8: Progression Tracking
 **Goal**: Suivi de progression avec historique d'entraînements, statistiques et visualisations
@@ -109,7 +109,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 4. Sessions Core | 2/2 | Complete | 2026-01-27 |
 | 5. Programs Core | 2/2 | Complete | 2026-01-27 |
 | 6. User Profiles | 2/2 | Complete | 2026-01-27 |
-| 7. Discovery | 1/2 | In progress | - |
+| 7. Discovery | 2/2 | Complete | 2026-01-27 |
 | 8. Progression Tracking | 0/? | Not started | - |
 | 9. Social Features | 0/? | Not started | - |
 | 10. Polish & Launch | 0/? | Not started | - |
