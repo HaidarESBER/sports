@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-26)
 
 **Core value:** Le suivi et la progression des utilisateurs doivent être impeccables
-**Current focus:** Phase 5 — Programs Core
+**Current focus:** Phase 6 — User Profiles
 
 ## Current Position
 
-Phase: 5 of 10 (Programs Core) - COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase complete, ready for Phase 6
-Last activity: 2026-01-27 — Completed 05-02-PLAN.md (Programs UI)
+Phase: 6 of 10 (User Profiles)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 06-01-PLAN.md (User Profiles Backend)
 
 Progress: ████████░░ 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 10
 - Average duration: 9 min
-- Total execution time: 1.38 hours
+- Total execution time: 1.5 hours
 
 **By Phase:**
 
@@ -32,9 +32,10 @@ Progress: ████████░░ 80%
 | 03-authentication | 2/2 | 18 min | 9 min |
 | 04-sessions-core | 2/2 | 22 min | 11 min |
 | 05-programs-core | 2/2 | 20 min | 10 min |
+| 06-user-profiles | 1/2 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (7 min), 04-02 (15 min), 05-01 (8 min), 05-02 (12 min)
+- Last 5 plans: 04-02 (15 min), 05-01 (8 min), 05-02 (12 min), 06-01 (8 min)
 - Trend: Stable
 
 ## Accumulated Context
@@ -64,6 +65,9 @@ Recent decisions affecting current work:
 | 05 | Atomic session replacement | PUT uses transaction to replace all program sessions atomically |
 | 05 | Session ownership validation | Users can only assign their own sessions to programs |
 | 05 | WeekNumber bounds checking | Validation against program.durationWeeks |
+| 06 | Follow unique constraint | [followerId, followingId] prevents duplicate follows |
+| 06 | Private profile 404 | Non-owners see 404 for private profiles (not 403) |
+| 06 | Pagination defaults | page=1, limit=20, max=100 for all list endpoints |
 
 ### Deferred Issues
 
@@ -76,6 +80,6 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 05-02-PLAN.md (Programs UI)
+Stopped at: Completed 06-01-PLAN.md (User Profiles Backend)
 Resume file: None
-Next: Phase 6 - Progression Tracking Core
+Next: 06-02-PLAN.md (User Profiles UI)

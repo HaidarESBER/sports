@@ -67,7 +67,8 @@ None
 **Goal**: Profils utilisateurs publics avec système followers/following
 **Depends on**: Phase 3
 **Research**: Unlikely (internal patterns)
-**Plans**: TBD
+**Plans**: 1/2 complete
+**Status**: In progress
 
 ### Phase 7: Discovery
 **Goal**: Recherche et exploration de programmes/séances (filtres par sport, niveau, durée)
@@ -106,7 +107,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. Authentication | 2/2 | Complete | 2026-01-27 |
 | 4. Sessions Core | 2/2 | Complete | 2026-01-27 |
 | 5. Programs Core | 2/2 | Complete | 2026-01-27 |
-| 6. User Profiles | 0/? | Not started | - |
+| 6. User Profiles | 1/2 | In progress | - |
 | 7. Discovery | 0/? | Not started | - |
 | 8. Progression Tracking | 0/? | Not started | - |
 | 9. Social Features | 0/? | Not started | - |
