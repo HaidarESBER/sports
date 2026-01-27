@@ -19,7 +19,7 @@ None
 - [x] **Phase 3: Authentication** — Inscription, connexion, gestion sessions
 - [x] **Phase 4: Sessions Core** — CRUD séances individuelles
 - [x] **Phase 5: Programs Core** — Assemblage séances en programmes
-- [ ] **Phase 6: User Profiles** — Profils publics, système followers
+- [x] **Phase 6: User Profiles** — Profils publics, système followers
 - [ ] **Phase 7: Discovery** — Recherche et exploration de programmes
 - [ ] **Phase 8: Progression Tracking** — Historique, stats, graphiques
 - [ ] **Phase 9: Social Features** — Partage, feed, interactions
@@ -67,8 +67,8 @@ None
 **Goal**: Profils utilisateurs publics avec système followers/following
 **Depends on**: Phase 3
 **Research**: Unlikely (internal patterns)
-**Plans**: 1/2 complete
-**Status**: In progress
+**Plans**: 2/2 complete
+**Status**: Complete (2026-01-27)
 
 ### Phase 7: Discovery
 **Goal**: Recherche et exploration de programmes/séances (filtres par sport, niveau, durée)
@@ -107,7 +107,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. Authentication | 2/2 | Complete | 2026-01-27 |
 | 4. Sessions Core | 2/2 | Complete | 2026-01-27 |
 | 5. Programs Core | 2/2 | Complete | 2026-01-27 |
-| 6. User Profiles | 1/2 | In progress | - |
+| 6. User Profiles | 2/2 | Complete | 2026-01-27 |
 | 7. Discovery | 0/? | Not started | - |
 | 8. Progression Tracking | 0/? | Not started | - |
 | 9. Social Features | 0/? | Not started | - |
