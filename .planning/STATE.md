@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 ## Current Position
 
 Phase: 4 of 10 (Sessions Core)
-Plan: 0 of 2 in current phase
-Status: Planned, ready for execution
-Last activity: 2026-01-27 — Created Phase 4 plans (04-01, 04-02)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 04-01-PLAN.md
 
-Progress: █████░░░░░ 50%
+Progress: ██████░░░░ 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 9 min
-- Total execution time: 0.72 hours
+- Total plans completed: 6
+- Average duration: 8 min
+- Total execution time: 0.83 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: █████░░░░░ 50%
 | 01-foundation | 2/2 | 20 min | 10 min |
 | 02-database-models | 1/1 | 5 min | 5 min |
 | 03-authentication | 2/2 | 18 min | 9 min |
+| 04-sessions-core | 1/2 | 7 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (8 min), 02-01 (5 min), 03-01 (8 min), 03-02 (10 min)
+- Last 5 plans: 02-01 (5 min), 03-01 (8 min), 03-02 (10 min), 04-01 (7 min)
 - Trend: Stable
 
 ## Accumulated Context
@@ -55,6 +56,9 @@ Recent decisions affecting current work:
 | 03 | Database sessions over JWT | Better security with server-side revocation |
 | 03 | Cookie-based middleware | Edge runtime compatible, validation server-side |
 | 03 | AuthSession model naming | Avoids conflict with training Session model |
+| 04 | Exercises GET is public | Shared library browseable by all, POST requires auth |
+| 04 | Atomic exercise replacement | PUT uses transaction to replace all exercises atomically |
+| 04 | Ownership returns 403 | Clear authorization failure vs 404 ambiguity |
 
 ### Deferred Issues
 
@@ -67,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Phase 4 planned (2 plans: API + UI)
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
