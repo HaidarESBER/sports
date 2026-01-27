@@ -9,19 +9,19 @@ See: .planning/PROJECT.md (updated 2026-01-26)
 
 ## Current Position
 
-Phase: 4 of 10 (Sessions Core)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-01-27 — Completed 04-01-PLAN.md
+Phase: 4 of 10 (Sessions Core) — COMPLETE
+Plan: 2 of 2 in current phase
+Status: Ready for Phase 5
+Last activity: 2026-01-27 — Completed 04-02-PLAN.md (Sessions CRUD UI)
 
-Progress: ██████░░░░ 60%
+Progress: ██████░░░░ 65%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 8 min
-- Total execution time: 0.83 hours
+- Total plans completed: 7
+- Average duration: 9 min
+- Total execution time: 1.05 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: ██████░░░░ 60%
 | 01-foundation | 2/2 | 20 min | 10 min |
 | 02-database-models | 1/1 | 5 min | 5 min |
 | 03-authentication | 2/2 | 18 min | 9 min |
-| 04-sessions-core | 1/2 | 7 min | 7 min |
+| 04-sessions-core | 2/2 | 22 min | 11 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (5 min), 03-01 (8 min), 03-02 (10 min), 04-01 (7 min)
+- Last 5 plans: 03-01 (8 min), 03-02 (10 min), 04-01 (7 min), 04-02 (15 min)
 - Trend: Stable
 
 ## Accumulated Context
@@ -59,6 +59,7 @@ Recent decisions affecting current work:
 | 04 | Exercises GET is public | Shared library browseable by all, POST requires auth |
 | 04 | Atomic exercise replacement | PUT uses transaction to replace all exercises atomically |
 | 04 | Ownership returns 403 | Clear authorization failure vs 404 ambiguity |
+| 04 | JWT sessions over database | Database sessions weren't propagating user.id correctly |
 
 ### Deferred Issues
 
@@ -71,5 +72,6 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed 04-01-PLAN.md
+Stopped at: Completed Phase 04-sessions-core (both plans)
 Resume file: None
+Next: Phase 05-programs-core
