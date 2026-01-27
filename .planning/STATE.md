@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-01-26)
 
 **Core value:** Le suivi et la progression des utilisateurs doivent être impeccables
-**Current focus:** Phase 4 — Sessions Core
+**Current focus:** Phase 5 — Programs Core
 
 ## Current Position
 
-Phase: 4 of 10 (Sessions Core) — COMPLETE
-Plan: 2 of 2 in current phase
-Status: Ready for Phase 5
-Last activity: 2026-01-27 — Completed 04-02-PLAN.md (Sessions CRUD UI)
+Phase: 5 of 10 (Programs Core)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-01-27 — Completed 05-01-PLAN.md (Programs Core API)
 
-Progress: ██████░░░░ 65%
+Progress: ███████░░░ 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 9 min
-- Total execution time: 1.05 hours
+- Total execution time: 1.18 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: ██████░░░░ 65%
 | 02-database-models | 1/1 | 5 min | 5 min |
 | 03-authentication | 2/2 | 18 min | 9 min |
 | 04-sessions-core | 2/2 | 22 min | 11 min |
+| 05-programs-core | 1/2 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (8 min), 03-02 (10 min), 04-01 (7 min), 04-02 (15 min)
+- Last 5 plans: 03-02 (10 min), 04-01 (7 min), 04-02 (15 min), 05-01 (8 min)
 - Trend: Stable
 
 ## Accumulated Context
@@ -60,6 +61,9 @@ Recent decisions affecting current work:
 | 04 | Atomic exercise replacement | PUT uses transaction to replace all exercises atomically |
 | 04 | Ownership returns 403 | Clear authorization failure vs 404 ambiguity |
 | 04 | JWT sessions over database | Database sessions weren't propagating user.id correctly |
+| 05 | Atomic session replacement | PUT uses transaction to replace all program sessions atomically |
+| 05 | Session ownership validation | Users can only assign their own sessions to programs |
+| 05 | WeekNumber bounds checking | Validation against program.durationWeeks |
 
 ### Deferred Issues
 
@@ -72,6 +76,6 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-27
-Stopped at: Completed Phase 04-sessions-core (both plans)
+Stopped at: Completed 05-01-PLAN.md (Programs Core API)
 Resume file: None
-Next: Phase 05-programs-core
+Next: 05-02-PLAN.md (Programs UI)

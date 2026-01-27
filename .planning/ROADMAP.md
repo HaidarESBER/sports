@@ -60,7 +60,8 @@ None
 **Goal**: Création de programmes multi-semaines en assemblant des séances avec progression
 **Depends on**: Phase 4
 **Research**: Unlikely (internal composition logic)
-**Plans**: TBD
+**Plans**: 1/2 complete
+**Status**: In progress
 
 ### Phase 6: User Profiles
 **Goal**: Profils utilisateurs publics avec système followers/following
@@ -104,7 +105,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Database & Models | 1/1 | Complete | 2026-01-26 |
 | 3. Authentication | 2/2 | Complete | 2026-01-27 |
 | 4. Sessions Core | 2/2 | Complete | 2026-01-27 |
-| 5. Programs Core | 0/? | Not started | - |
+| 5. Programs Core | 1/2 | In progress | - |
 | 6. User Profiles | 0/? | Not started | - |
 | 7. Discovery | 0/? | Not started | - |
 | 8. Progression Tracking | 0/? | Not started | - |
