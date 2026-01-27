@@ -53,7 +53,8 @@ None
 **Goal**: CRUD complet pour séances individuelles (créer, modifier, supprimer, lister)
 **Depends on**: Phase 3
 **Research**: Unlikely (internal CRUD patterns)
-**Plans**: TBD
+**Plans**: 2 (04-01: API routes, 04-02: UI pages)
+**Status**: Planned
 
 ### Phase 5: Programs Core
 **Goal**: Création de programmes multi-semaines en assemblant des séances avec progression
@@ -102,7 +103,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Foundation | 2/2 | Complete | 2026-01-26 |
 | 2. Database & Models | 1/1 | Complete | 2026-01-26 |
 | 3. Authentication | 2/2 | Complete | 2026-01-27 |
-| 4. Sessions Core | 0/? | Not started | - |
+| 4. Sessions Core | 0/2 | Planned | - |
 | 5. Programs Core | 0/? | Not started | - |
 | 6. User Profiles | 0/? | Not started | - |
 | 7. Discovery | 0/? | Not started | - |
