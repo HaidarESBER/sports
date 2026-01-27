@@ -98,7 +98,9 @@ None
 **Goal**: UI/UX finalisé, optimisations performance, préparation production
 **Depends on**: All previous phases
 **Research**: Unlikely (polish and optimization)
-**Plans**: TBD
+**Plans**: 2 planned
+- 10-01: UI/UX Polish and Landing Page (design system, navbar, landing page)
+- 10-02: Performance and Production Readiness (SEO, error handling, optimizations)
 
 ## Progress
 
