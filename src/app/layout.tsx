@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '@/components/Navbar'
+import { baseMetadata } from '@/lib/metadata'
+import { viewport } from '@/lib/viewport'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'SportPlan',
-  description: 'Planifiez, partagez, progressez',
-}
+export const metadata: Metadata = baseMetadata
+export { viewport }
 
 export default function RootLayout({
   children,
@@ -16,7 +17,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar />
+        <main className="min-h-screen pt-16">{children}</main>
+        <footer className="bg-gray-800 text-white py-8 mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center text-sm text-gray-400">
+              <p>&copy; {new Date().getFullYear()} SportPlan. Tous droits réservés.</p>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   )
 }

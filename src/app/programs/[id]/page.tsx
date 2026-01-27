@@ -3,6 +3,8 @@ import Link from "next/link"
 import { auth } from "@/lib/auth"
 import { prisma } from "@/lib/db"
 import { DeleteProgramButton } from "./DeleteProgramButton"
+import { LikeButton } from "@/components/LikeButton"
+import { CommentSection } from "@/components/CommentSection"
 
 const sportColors: Record<string, { bg: string; text: string }> = {
   running: { bg: "bg-green-100", text: "text-green-800" },
@@ -81,6 +83,23 @@ export default async function ProgramDetailPage({ params }: PageProps) {
 
   // Get sessions from program for calendar
   const programSessions = program.programSessions
+
+  // Get like count (client component will fetch full status)
+  const likesCount = await prisma.like.count({
+    where: { programId: id },
+  })
+
+  // Check if current user liked it
+  let isLiked = false
+  const existingLike = await prisma.like.findUnique({
+    where: {
+      userId_programId: {
+        userId: session.user.id,
+        programId: id,
+      },
+    },
+  })
+  isLiked = !!existingLike
 
   function formatDate(date: Date) {
     return new Intl.DateTimeFormat("fr-FR", {
@@ -238,7 +257,15 @@ export default async function ProgramDetailPage({ params }: PageProps) {
             </div>
 
             {/* Actions */}
-            <div className="mt-4 sm:mt-0 sm:ml-6 flex gap-2">
+            <div className="mt-4 sm:mt-0 sm:ml-6 flex gap-2 items-center">
+              {(program.isPublic || program.authorId === session.user.id) && (
+                <LikeButton
+                  type="program"
+                  targetId={id}
+                  initialIsLiked={isLiked}
+                  initialLikesCount={likesCount}
+                />
+              )}
               <Link
                 href={`/programs/${id}/edit`}
                 className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -356,6 +383,17 @@ export default async function ProgramDetailPage({ params }: PageProps) {
             </div>
           )}
         </div>
+
+        {/* Comments section */}
+        {(program.isPublic || program.authorId === session.user.id) && (
+          <div className="mt-6">
+            <CommentSection
+              type="program"
+              targetId={id}
+              currentUserId={session.user.id}
+            />
+          </div>
+        )}
       </div>
     </div>
   )

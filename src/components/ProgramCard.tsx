@@ -1,5 +1,6 @@
 "use client"
 
+import { memo } from "react"
 import Link from "next/link"
 
 type ProgramSession = {
@@ -60,7 +61,7 @@ const difficultyLabels: Record<string, string> = {
   avance: "Avance",
 }
 
-export function ProgramCard({ program }: ProgramCardProps) {
+function ProgramCardComponent({ program }: ProgramCardProps) {
   const sportColor = sportColors[program.sport] || sportColors.other
   const sportLabel = sportLabels[program.sport] || program.sport
   const difficultyColor = program.difficulty
@@ -158,3 +159,5 @@ export function ProgramCard({ program }: ProgramCardProps) {
     </Link>
   )
 }
+
+export const ProgramCard = memo(ProgramCardComponent)

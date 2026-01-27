@@ -1,5 +1,6 @@
 "use client"
 
+import { memo } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
@@ -53,7 +54,7 @@ const sportLabels: Record<string, string> = {
   other: "Autre",
 }
 
-export function SessionCard({ session, onDelete }: SessionCardProps) {
+function SessionCardComponent({ session, onDelete }: SessionCardProps) {
   const router = useRouter()
   const [isDeleting, setIsDeleting] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
@@ -176,3 +177,5 @@ export function SessionCard({ session, onDelete }: SessionCardProps) {
     </div>
   )
 }
+
+export const SessionCard = memo(SessionCardComponent)

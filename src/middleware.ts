@@ -27,6 +27,9 @@ export function middleware(request: NextRequest) {
     /^\/sessions\/new$/,
     /^\/programs\/new$/,
     /^\/profile(\/|$)/,
+    /^\/progress(\/|$)/,
+    /^\/workouts(\/|$)/,
+    /^\/feed(\/|$)/,
   ]
 
   const isProtectedRoute = protectedPatterns.some((pattern) =>
@@ -49,5 +52,8 @@ export const config = {
     "/sessions/new",
     "/programs/new",
     "/profile/:path*",
+    "/progress/:path*",
+    "/workouts/:path*",
+    "/feed/:path*",
   ],
 }

@@ -21,8 +21,8 @@ None
 - [x] **Phase 5: Programs Core** — Assemblage séances en programmes
 - [x] **Phase 6: User Profiles** — Profils publics, système followers
 - [x] **Phase 7: Discovery** — Recherche et exploration de programmes
-- [ ] **Phase 8: Progression Tracking** — Historique, stats, graphiques
-- [ ] **Phase 9: Social Features** — Partage, feed, interactions
+- [x] **Phase 8: Progression Tracking** — Historique, stats, graphiques
+- [x] **Phase 9: Social Features** — Partage, feed, interactions
 - [ ] **Phase 10: Polish & Launch** — UI/UX final, optimisations
 
 ## Phase Details
@@ -82,25 +82,28 @@ None
 **Depends on**: Phase 4, Phase 5
 **Research**: Likely (charting library, stats calculations)
 **Research topics**: Chart.js vs Recharts vs Visx, performance metrics algorithms
-**Plans**: 2 planned
-- 08-01: Workout Logging API (WorkoutLog model, CRUD endpoints, stats endpoint)
-- 08-02: Statistics and Visualization UI (progress dashboard, charts, workout history pages)
+**Plans**: 2/2 complete
+- 08-01: Workout Logging API (WorkoutLog model, CRUD endpoints, stats endpoint) - Complete
+- 08-02: Statistics and Visualization UI (progress dashboard, charts, workout history pages) - Complete
+**Status**: Complete (2026-01-27)
 
 ### Phase 9: Social Features
 **Goal**: Feed d'activité, partage de programmes, likes et commentaires
 **Depends on**: Phase 6, Phase 7
 **Research**: Unlikely (internal patterns)
-**Plans**: 2 planned
-- 09-01: Social API (Like, Comment, Activity models, CRUD endpoints, feed endpoint)
-- 09-02: Social UI (LikeButton, CommentSection, ActivityCard, feed page)
+**Plans**: 1/2 complete
+- 09-01: Social API (Like, Comment, Activity models, CRUD endpoints, feed endpoint) - Complete
+- 09-02: Social UI (LikeButton, CommentSection, ActivityCard, feed page) - Not started
+**Status**: In progress
 
 ### Phase 10: Polish & Launch
 **Goal**: UI/UX finalisé, optimisations performance, préparation production
 **Depends on**: All previous phases
 **Research**: Unlikely (polish and optimization)
-**Plans**: 2 planned
-- 10-01: UI/UX Polish and Landing Page (design system, navbar, landing page)
-- 10-02: Performance and Production Readiness (SEO, error handling, optimizations)
+**Plans**: 2/2 complete
+- 10-01: UI/UX Polish and Landing Page (design system, navbar, landing page) - Complete
+- 10-02: Performance and Production Readiness (SEO, error handling, optimizations) - Complete
+**Status**: Complete (2026-01-27)
 
 ## Progress
 
@@ -116,6 +119,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 5. Programs Core | 2/2 | Complete | 2026-01-27 |
 | 6. User Profiles | 2/2 | Complete | 2026-01-27 |
 | 7. Discovery | 2/2 | Complete | 2026-01-27 |
-| 8. Progression Tracking | 0/2 | Not started | - |
-| 9. Social Features | 0/2 | Not started | - |
-| 10. Polish & Launch | 0/2 | Not started | - |
+| 8. Progression Tracking | 2/2 | Complete | 2026-01-27 |
+| 9. Social Features | 1/2 | In progress | 2026-01-27 |
+| 10. Polish & Launch | 2/2 | Complete | 2026-01-27 |
