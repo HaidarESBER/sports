@@ -17,7 +17,7 @@ None
 - [x] **Phase 1: Foundation** — Setup projet, stack technique, structure de base
 - [x] **Phase 2: Database & Models** — Schéma BDD, modèles de données
 - [x] **Phase 3: Authentication** — Inscription, connexion, gestion sessions
-- [ ] **Phase 4: Sessions Core** — CRUD séances individuelles
+- [x] **Phase 4: Sessions Core** — CRUD séances individuelles
 - [ ] **Phase 5: Programs Core** — Assemblage séances en programmes
 - [ ] **Phase 6: User Profiles** — Profils publics, système followers
 - [ ] **Phase 7: Discovery** — Recherche et exploration de programmes
@@ -53,8 +53,8 @@ None
 **Goal**: CRUD complet pour séances individuelles (créer, modifier, supprimer, lister)
 **Depends on**: Phase 3
 **Research**: Unlikely (internal CRUD patterns)
-**Plans**: 1/2 complete (04-01: API routes complete, 04-02: UI pages pending)
-**Status**: In progress
+**Plans**: 2/2 complete
+**Status**: Complete (2026-01-27)
 
 ### Phase 5: Programs Core
 **Goal**: Création de programmes multi-semaines en assemblant des séances avec progression
@@ -103,7 +103,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Foundation | 2/2 | Complete | 2026-01-26 |
 | 2. Database & Models | 1/1 | Complete | 2026-01-26 |
 | 3. Authentication | 2/2 | Complete | 2026-01-27 |
-| 4. Sessions Core | 1/2 | In progress | - |
+| 4. Sessions Core | 2/2 | Complete | 2026-01-27 |
 | 5. Programs Core | 0/? | Not started | - |
 | 6. User Profiles | 0/? | Not started | - |
 | 7. Discovery | 0/? | Not started | - |
