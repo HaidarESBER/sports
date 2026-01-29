@@ -167,7 +167,7 @@ export function ProgressDashboard() {
             className={`px-4 py-2 text-sm font-medium rounded-md ${
               period === p
                 ? "bg-blue-600 text-white"
-                : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                : "bg-gray-900 text-white border border-gray-800 hover:bg-gray-950"
             }`}
           >
             {p === "week"
@@ -187,7 +187,7 @@ export function ProgressDashboard() {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className="bg-white rounded-lg shadow-md border border-gray-200 p-6 animate-pulse"
+              className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-6 animate-pulse"
             >
               <div className="h-4 bg-gray-200 rounded w-24 mb-4"></div>
               <div className="h-8 bg-gray-200 rounded w-16"></div>
@@ -246,19 +246,19 @@ export function ProgressDashboard() {
 
       {/* Personal Records */}
       {stats && stats.personalRecords.length > 0 && (
-        <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Records personnels récents
           </h3>
           <div className="space-y-3">
             {stats.personalRecords.slice(0, 5).map((pr, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-md"
+                className="flex items-center justify-between p-3 bg-gray-950 rounded-md"
               >
                 <div>
-                  <p className="font-medium text-gray-900">{pr.exerciseName}</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="font-medium text-white">{pr.exerciseName}</p>
+                  <p className="text-sm text-gray-400">
                     {pr.metric === "weight"
                       ? "Poids max"
                       : pr.metric === "reps"

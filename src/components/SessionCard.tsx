@@ -84,10 +84,10 @@ function SessionCardComponent({ session, onDelete }: SessionCardProps) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 overflow-hidden hover:border-gray-700 hover:bg-gray-950 transition-all">
       <Link href={`/sessions/${session.id}`} className="block p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+          <h3 className="text-lg font-semibold text-white truncate">
             {session.name}
           </h3>
           <span
@@ -98,12 +98,12 @@ function SessionCardComponent({ session, onDelete }: SessionCardProps) {
         </div>
 
         {session.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p className="text-sm text-gray-300 mb-3 line-clamp-2">
             {session.description}
           </p>
         )}
 
-        <div className="flex items-center gap-4 text-sm text-gray-500">
+        <div className="flex items-center gap-4 text-sm text-gray-400">
           {session.estimatedDuration && (
             <span className="flex items-center">
               <svg
@@ -141,10 +141,10 @@ function SessionCardComponent({ session, onDelete }: SessionCardProps) {
         </div>
       </Link>
 
-      <div className="border-t border-gray-200 px-4 py-3 bg-gray-50 flex justify-end gap-2">
+      <div className="border-t border-gray-800 px-4 py-3 bg-gray-950 flex justify-end gap-2">
         <Link
           href={`/sessions/${session.id}/edit`}
-          className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600"
         >
           Modifier
         </Link>
@@ -160,7 +160,7 @@ function SessionCardComponent({ session, onDelete }: SessionCardProps) {
             <button
               onClick={() => setShowConfirm(false)}
               disabled={isDeleting}
-              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+              className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-md hover:bg-gray-800"
             >
               Annuler
             </button>
@@ -168,7 +168,7 @@ function SessionCardComponent({ session, onDelete }: SessionCardProps) {
         ) : (
           <button
             onClick={() => setShowConfirm(true)}
-            className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-700 bg-white border border-red-300 rounded-md hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-red-400 bg-gray-900 border border-red-800 rounded-md hover:bg-red-900/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
             Supprimer
           </button>

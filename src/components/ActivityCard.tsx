@@ -179,7 +179,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
       : null
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-200 p-4 hover:shadow-lg transition-shadow">
+    <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-4 hover:border-gray-700 hover:bg-gray-950 transition-all">
       <div className="flex items-start gap-3">
         {/* User avatar */}
         <Link href={`/users/${activity.user.id}`} className="flex-shrink-0">
@@ -190,7 +190,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
               className="w-10 h-10 rounded-full"
             />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-medium text-gray-700">
+            <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-sm font-medium text-gray-300">
               {getInitial(activity.user.name)}
             </div>
           )}
@@ -201,12 +201,12 @@ export function ActivityCard({ activity }: ActivityCardProps) {
           <div className="flex items-start gap-2 mb-2">
             {getActivityIcon()}
             <div className="flex-1">
-              <p className="text-sm text-gray-900">
+              <p className="text-sm text-white">
                 {getActivityText()}{" "}
                 {activity.program && (
                   <Link
                     href={`/programs/${activity.program.id}`}
-                    className="font-medium text-blue-600 hover:text-blue-700"
+                    className="font-medium text-white hover:text-gray-300"
                   >
                     {activity.program.name}
                   </Link>
@@ -214,7 +214,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
                 {activity.session && (
                   <Link
                     href={`/sessions/${activity.session.id}`}
-                    className="font-medium text-blue-600 hover:text-blue-700"
+                    className="font-medium text-white hover:text-gray-300"
                   >
                     {activity.session.name}
                   </Link>
@@ -222,7 +222,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
                 {activity.targetUser && (
                   <Link
                     href={`/users/${activity.targetUser.id}`}
-                    className="font-medium text-blue-600 hover:text-blue-700"
+                    className="font-medium text-white hover:text-gray-300"
                   >
                     {activity.targetUser.name || "Utilisateur"}
                   </Link>
@@ -237,7 +237,7 @@ export function ActivityCard({ activity }: ActivityCardProps) {
               )}
             </div>
           </div>
-          <p className="text-xs text-gray-500">{formatDate(activity.createdAt)}</p>
+          <p className="text-xs text-gray-400">{formatDate(activity.createdAt)}</p>
         </div>
       </div>
     </div>
