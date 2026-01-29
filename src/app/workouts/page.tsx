@@ -122,21 +122,21 @@ function WorkoutsContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-white">
               Historique des entraînements
             </h1>
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-1 text-sm text-gray-400">
               Consultez tous vos entraînements enregistrés
             </p>
           </div>
           <Link
             href="/workouts/log"
-            className="mt-4 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            className="mt-4 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-black bg-white hover:bg-gray-100"
           >
             <svg
               className="w-5 h-5 mr-2 -ml-1"
@@ -158,7 +158,7 @@ function WorkoutsContent() {
         {/* Filters */}
         <div className="mb-6 space-y-4">
           {/* Sport filter */}
-          <div className="border-b border-gray-200">
+          <div className="border-b border-gray-900">
             <nav className="-mb-px flex space-x-8 overflow-x-auto" aria-label="Tabs">
               {sportFilters.map((filter) => {
                 const isActive = sportFilter === filter.id
@@ -171,8 +171,8 @@ function WorkoutsContent() {
                     }}
                     className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
                       isActive
-                        ? "border-blue-500 text-blue-600"
-                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                        ? "border-white text-white"
+                        : "border-transparent text-gray-400 hover:text-white hover:border-gray-700"
                     }`}
                   >
                     {filter.label}
@@ -185,7 +185,7 @@ function WorkoutsContent() {
           {/* Date range filters */}
           <div className="flex flex-col sm:flex-row gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-300 mb-1">
                 Du
               </label>
               <input
@@ -195,11 +195,11 @@ function WorkoutsContent() {
                   setFromDate(e.target.value)
                   setPage(1)
                 }}
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-800 bg-gray-900 text-white shadow-sm focus:border-gray-700 focus:ring-gray-600 sm:text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-300 mb-1">
                 Au
               </label>
               <input
@@ -209,7 +209,7 @@ function WorkoutsContent() {
                   setToDate(e.target.value)
                   setPage(1)
                 }}
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-800 bg-gray-900 text-white shadow-sm focus:border-gray-700 focus:ring-gray-600 sm:text-sm"
               />
             </div>
           </div>
@@ -218,13 +218,13 @@ function WorkoutsContent() {
         {/* Workouts list */}
         {isLoading ? (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-600"></div>
-            <p className="mt-2 text-sm text-gray-500">Chargement...</p>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-800 border-t-white"></div>
+            <p className="mt-2 text-sm text-gray-400">Chargement...</p>
           </div>
         ) : workouts.length === 0 ? (
           <div className="text-center py-12">
             <svg
-              className="mx-auto h-12 w-12 text-gray-400"
+              className="mx-auto h-12 w-12 text-gray-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -236,16 +236,16 @@ function WorkoutsContent() {
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
               />
             </svg>
-            <h3 className="mt-2 text-sm font-medium text-gray-900">
+            <h3 className="mt-2 text-sm font-medium text-white">
               Aucun entraînement
             </h3>
-            <p className="mt-1 text-sm text-gray-500">
+            <p className="mt-1 text-sm text-gray-400">
               Commencez à enregistrer vos entraînements!
             </p>
             <div className="mt-6">
               <Link
                 href="/workouts/log"
-                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100"
               >
                 Enregistrer un entraînement
               </Link>
@@ -262,11 +262,11 @@ function WorkoutsContent() {
                   <Link
                     key={workout.id}
                     href={`/workouts/${workout.id}`}
-                    className="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+                    className="block bg-gray-900 rounded-lg shadow-md border border-gray-800 overflow-hidden hover:border-gray-700 hover:bg-gray-950 transition-all"
                   >
                     <div className="p-4">
                       <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-lg font-semibold text-gray-900">
+                        <h3 className="text-lg font-semibold text-white">
                           {workout.name}
                         </h3>
                         <span
@@ -276,7 +276,7 @@ function WorkoutsContent() {
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex items-center gap-4 text-sm text-gray-400">
                         <span>{formatDate(workout.completedAt)}</span>
                         {workout.duration && (
                           <span>{workout.duration} min</span>
@@ -303,17 +303,17 @@ function WorkoutsContent() {
                 <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page === 1}
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-gray-800 rounded-md hover:bg-gray-950 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Précédent
                 </button>
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-400">
                   Page {page} sur {totalPages}
                 </span>
                 <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-gray-800 rounded-md hover:bg-gray-950 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Suivant
                 </button>
@@ -329,9 +329,9 @@ function WorkoutsContent() {
 export default function WorkoutsPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-600"></div>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-800 border-t-white"></div>
           <p className="mt-2 text-sm text-gray-500">Chargement...</p>
         </div>
       </div>

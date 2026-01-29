@@ -39,12 +39,12 @@ export function WorkoutChart({
 }: WorkoutChartProps) {
   if (isLoading) {
     return (
-      <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">{title}</h3>
+      <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
         <div className="h-64 flex items-center justify-center">
           <div className="text-center">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-600"></div>
-            <p className="mt-2 text-sm text-gray-500">Chargement...</p>
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-800 border-t-blue-600"></div>
+            <p className="mt-2 text-sm text-gray-400">Chargement...</p>
           </div>
         </div>
       </div>
@@ -53,10 +53,10 @@ export function WorkoutChart({
 
   if (data.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">{title}</h3>
+      <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
         <div className="h-64 flex items-center justify-center">
-          <p className="text-sm text-gray-500">Aucune donnée disponible</p>
+          <p className="text-sm text-gray-400">Aucune donnée disponible</p>
         </div>
       </div>
     )
@@ -73,9 +73,9 @@ export function WorkoutChart({
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
       return (
-        <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
-          <p className="text-sm font-medium text-gray-900">{formatDate(label)}</p>
-          <p className="text-sm text-gray-600">
+        <div className="bg-gray-900 p-3 border border-gray-800 rounded-lg shadow-lg">
+          <p className="text-sm font-medium text-white">{formatDate(label)}</p>
+          <p className="text-sm text-gray-400">
             {yAxisLabel || "Valeur"}: <span className="font-semibold">{payload[0].value}</span>
           </p>
         </div>
@@ -85,19 +85,19 @@ export function WorkoutChart({
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">{title}</h3>
+    <div className="bg-gray-900 rounded-lg shadow-md border border-gray-800 p-6">
+      <h3 className="text-lg font-semibold text-white mb-4">{title}</h3>
       <ResponsiveContainer width="100%" height={300}>
         {type === "line" ? (
           <LineChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#6b7280"
+              stroke="#9ca3af"
               style={{ fontSize: "12px" }}
             />
-            <YAxis stroke="#6b7280" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }} />
+            <YAxis stroke="#9ca3af" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fill: "#9ca3af" }} />
             <Tooltip content={<CustomTooltip />} />
             <Line
               type="monotone"
@@ -110,27 +110,27 @@ export function WorkoutChart({
           </LineChart>
         ) : type === "bar" ? (
           <BarChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#6b7280"
+              stroke="#9ca3af"
               style={{ fontSize: "12px" }}
             />
-            <YAxis stroke="#6b7280" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }} />
+            <YAxis stroke="#9ca3af" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fill: "#9ca3af" }} />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="value" fill={color} radius={[4, 4, 0, 0]} />
           </BarChart>
         ) : (
           <AreaChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#6b7280"
+              stroke="#9ca3af"
               style={{ fontSize: "12px" }}
             />
-            <YAxis stroke="#6b7280" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }} />
+            <YAxis stroke="#9ca3af" style={{ fontSize: "12px" }} label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fill: "#9ca3af" }} />
             <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"

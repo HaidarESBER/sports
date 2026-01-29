@@ -221,7 +221,7 @@ export function DiscoverTabs({ initialTab = "programs", isAuthenticated = false 
       />
 
       {/* Tabs */}
-      <div className="border-b border-gray-200">
+      <div className="border-b border-gray-900">
         <nav className="-mb-px flex space-x-8" aria-label="Tabs">
           {tabs.map((tab) => (
             <button
@@ -229,8 +229,8 @@ export function DiscoverTabs({ initialTab = "programs", isAuthenticated = false 
               onClick={() => handleTabChange(tab.id)}
               className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
                 activeTab === tab.id
-                  ? "border-blue-500 text-blue-600"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                  ? "border-white text-white"
+                  : "border-transparent text-gray-400 hover:text-white hover:border-gray-700"
               }`}
             >
               {tab.label}
@@ -241,7 +241,7 @@ export function DiscoverTabs({ initialTab = "programs", isAuthenticated = false 
 
       {/* Results count */}
       {!isLoading && (
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-400">
           {total} resultat{total !== 1 ? "s" : ""} trouve{total !== 1 ? "s" : ""}
         </p>
       )}
@@ -249,8 +249,8 @@ export function DiscoverTabs({ initialTab = "programs", isAuthenticated = false 
       {/* Loading state */}
       {isLoading && (
         <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-blue-600"></div>
-          <p className="mt-2 text-sm text-gray-500">Chargement...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-800 border-t-white"></div>
+          <p className="mt-2 text-sm text-gray-400">Chargement...</p>
         </div>
       )}
 
@@ -311,17 +311,17 @@ export function DiscoverTabs({ initialTab = "programs", isAuthenticated = false 
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-gray-800 rounded-md hover:bg-gray-950 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Precedent
               </button>
-              <span className="text-sm text-gray-700">
+              <span className="text-sm text-gray-400">
                 Page {page} sur {totalPages}
               </span>
               <button
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-900 border border-gray-800 rounded-md hover:bg-gray-950 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Suivant
               </button>
@@ -365,10 +365,10 @@ function EmptyState({ type }: { type: "programs" | "sessions" | "users" }) {
           d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <h3 className="mt-2 text-sm font-medium text-gray-900">
+      <h3 className="mt-2 text-sm font-medium text-white">
         {messages[type].title}
       </h3>
-      <p className="mt-1 text-sm text-gray-500">{messages[type].description}</p>
+      <p className="mt-1 text-sm text-gray-400">{messages[type].description}</p>
     </div>
   )
 }
@@ -384,11 +384,11 @@ function ProgramCard({ program }: { program: DiscoverProgram }) {
   return (
     <Link
       href={`/programs/${program.id}`}
-      className="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+      className="block bg-gray-900 rounded-lg shadow-md border border-gray-800 overflow-hidden hover:border-gray-700 hover:bg-gray-950 transition-all"
     >
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+          <h3 className="text-lg font-semibold text-white truncate">
             {program.name}
           </h3>
           <span
@@ -399,12 +399,12 @@ function ProgramCard({ program }: { program: DiscoverProgram }) {
         </div>
 
         {program.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p className="text-sm text-gray-300 mb-3 line-clamp-2">
             {program.description}
           </p>
         )}
 
-        <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
+        <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400 mb-3">
           <span className="flex items-center">
             <svg
               className="w-4 h-4 mr-1"
@@ -438,12 +438,12 @@ function ProgramCard({ program }: { program: DiscoverProgram }) {
             {program._count.programSessions} seance{program._count.programSessions !== 1 ? "s" : ""}
           </span>
           {difficultyLabel && (
-            <span className="text-xs text-gray-500">{difficultyLabel}</span>
+            <span className="text-xs text-gray-400">{difficultyLabel}</span>
           )}
         </div>
 
         {/* Author info */}
-        <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
+        <div className="flex items-center gap-2 pt-3 border-t border-gray-800">
           {program.author.image ? (
             <img
               src={program.author.image}
@@ -451,13 +451,13 @@ function ProgramCard({ program }: { program: DiscoverProgram }) {
               className="w-6 h-6 rounded-full object-cover"
             />
           ) : (
-            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-              <span className="text-blue-600 font-medium text-xs">
+            <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center">
+              <span className="text-gray-300 font-medium text-xs">
                 {program.author.name?.charAt(0).toUpperCase() || "?"}
               </span>
             </div>
           )}
-          <span className="text-sm text-gray-600 truncate">
+          <span className="text-sm text-gray-300 truncate">
             {program.author.name || "Utilisateur"}
           </span>
         </div>
@@ -474,11 +474,11 @@ function SessionCard({ session }: { session: DiscoverSession }) {
   return (
     <Link
       href={`/sessions/${session.id}`}
-      className="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+      className="block bg-gray-900 rounded-lg shadow-md border border-gray-800 overflow-hidden hover:border-gray-700 hover:bg-gray-950 transition-all"
     >
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+          <h3 className="text-lg font-semibold text-white truncate">
             {session.name}
           </h3>
           <span
@@ -489,12 +489,12 @@ function SessionCard({ session }: { session: DiscoverSession }) {
         </div>
 
         {session.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p className="text-sm text-gray-300 mb-3 line-clamp-2">
             {session.description}
           </p>
         )}
 
-        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+        <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
           {session.estimatedDuration && (
             <span className="flex items-center">
               <svg
@@ -532,7 +532,7 @@ function SessionCard({ session }: { session: DiscoverSession }) {
         </div>
 
         {/* Author info */}
-        <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
+        <div className="flex items-center gap-2 pt-3 border-t border-gray-800">
           {session.author.image ? (
             <img
               src={session.author.image}
@@ -540,13 +540,13 @@ function SessionCard({ session }: { session: DiscoverSession }) {
               className="w-6 h-6 rounded-full object-cover"
             />
           ) : (
-            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center">
-              <span className="text-blue-600 font-medium text-xs">
+            <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center">
+              <span className="text-gray-300 font-medium text-xs">
                 {session.author.name?.charAt(0).toUpperCase() || "?"}
               </span>
             </div>
           )}
-          <span className="text-sm text-gray-600 truncate">
+          <span className="text-sm text-gray-300 truncate">
             {session.author.name || "Utilisateur"}
           </span>
         </div>

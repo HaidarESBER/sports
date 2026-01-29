@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar'
 import { baseMetadata } from '@/lib/metadata'
 import { viewport } from '@/lib/viewport'
 import { ToastProvider } from '@/components/Toast'
+import { ConditionalNavbar } from '@/components/ConditionalNavbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,15 +21,8 @@ export default function RootLayout({
     <html lang="fr" className="dark">
       <body className={`${inter.className} bg-black text-white`}>
         <ToastProvider>
-          <Navbar />
+          <ConditionalNavbar />
           <main className="min-h-screen">{children}</main>
-          <footer className="bg-black border-t border-gray-900 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center text-sm text-gray-500">
-                <p>&copy; {new Date().getFullYear()} SportPlan. Tous droits réservés.</p>
-              </div>
-            </div>
-          </footer>
         </ToastProvider>
       </body>
     </html>

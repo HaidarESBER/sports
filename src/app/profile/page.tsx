@@ -84,10 +84,10 @@ export default async function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Profile Header */}
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-gray-900 rounded-lg shadow border border-gray-800 p-6 mb-6">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
             <div className="flex items-center gap-4">
               {/* Avatar */}
@@ -107,11 +107,11 @@ export default async function ProfilePage() {
 
               {/* User info */}
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">
+                <h1 className="text-2xl font-bold text-white">
                   {user.name || "Utilisateur"}
                 </h1>
                 {user.location && (
-                  <p className="text-sm text-gray-500 flex items-center mt-1">
+                  <p className="text-sm text-gray-400 flex items-center mt-1">
                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -119,7 +119,7 @@ export default async function ProfilePage() {
                     {user.location}
                   </p>
                 )}
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-gray-400 mt-1">
                   Membre depuis {formatDate(user.createdAt)}
                 </p>
               </div>
@@ -127,7 +127,7 @@ export default async function ProfilePage() {
 
             <Link
               href="/profile/edit"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-gray-700 rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600"
             >
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -138,26 +138,26 @@ export default async function ProfilePage() {
 
           {/* Bio */}
           {user.bio && (
-            <p className="mt-4 text-gray-600">{user.bio}</p>
+            <p className="mt-4 text-gray-300">{user.bio}</p>
           )}
 
           {/* Stats */}
           <div className="mt-6 flex flex-wrap gap-6">
-            <Link href={`/users/${user.id}?tab=followers`} className="text-center hover:text-blue-600">
-              <span className="block text-2xl font-bold text-gray-900">{user._count.followers}</span>
-              <span className="text-sm text-gray-500">Abonnes</span>
+            <Link href={`/users/${user.id}?tab=followers`} className="text-center hover:text-white">
+              <span className="block text-2xl font-bold text-white">{user._count.followers}</span>
+              <span className="text-sm text-gray-400">Abonnes</span>
             </Link>
-            <Link href={`/users/${user.id}?tab=following`} className="text-center hover:text-blue-600">
-              <span className="block text-2xl font-bold text-gray-900">{user._count.following}</span>
-              <span className="text-sm text-gray-500">Abonnements</span>
+            <Link href={`/users/${user.id}?tab=following`} className="text-center hover:text-white">
+              <span className="block text-2xl font-bold text-white">{user._count.following}</span>
+              <span className="text-sm text-gray-400">Abonnements</span>
             </Link>
-            <Link href="/programs" className="text-center hover:text-blue-600">
-              <span className="block text-2xl font-bold text-gray-900">{user._count.programs}</span>
-              <span className="text-sm text-gray-500">Programmes</span>
+            <Link href="/programs" className="text-center hover:text-white">
+              <span className="block text-2xl font-bold text-white">{user._count.programs}</span>
+              <span className="text-sm text-gray-400">Programmes</span>
             </Link>
-            <Link href="/sessions" className="text-center hover:text-blue-600">
-              <span className="block text-2xl font-bold text-gray-900">{user._count.sessions}</span>
-              <span className="text-sm text-gray-500">Seances</span>
+            <Link href="/sessions" className="text-center hover:text-white">
+              <span className="block text-2xl font-bold text-white">{user._count.sessions}</span>
+              <span className="text-sm text-gray-400">Seances</span>
             </Link>
           </div>
 
@@ -182,18 +182,18 @@ export default async function ProfilePage() {
         </div>
 
         {/* Recent Programs */}
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
+        <div className="bg-gray-900 rounded-lg shadow border border-gray-800 p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Programmes recents</h2>
-            <Link href="/programs" className="text-sm text-blue-600 hover:text-blue-500">
+            <h2 className="text-lg font-semibold text-white">Programmes recents</h2>
+            <Link href="/programs" className="text-sm text-white hover:text-gray-300">
               Voir tout
             </Link>
           </div>
 
           {recentPrograms.length === 0 ? (
             <div className="text-center py-6">
-              <p className="text-gray-500 mb-2">Aucun programme</p>
-              <Link href="/programs/new" className="text-blue-600 hover:text-blue-500 text-sm">
+              <p className="text-gray-400 mb-2">Aucun programme</p>
+              <Link href="/programs/new" className="text-white hover:text-gray-300 text-sm">
                 Creer un programme
               </Link>
             </div>
@@ -203,12 +203,12 @@ export default async function ProfilePage() {
                 <Link
                   key={program.id}
                   href={`/programs/${program.id}`}
-                  className="block p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                  className="block p-3 border border-gray-800 rounded-md hover:bg-gray-950 transition-colors"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-medium text-gray-900">{program.name}</h3>
-                      <p className="text-sm text-gray-500">
+                      <h3 className="font-medium text-white">{program.name}</h3>
+                      <p className="text-sm text-gray-400">
                         {sportLabels[program.sport] || program.sport} - {program.durationWeeks} semaine{program.durationWeeks !== 1 ? "s" : ""}
                       </p>
                     </div>
@@ -223,18 +223,18 @@ export default async function ProfilePage() {
         </div>
 
         {/* Recent Sessions */}
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="bg-gray-900 rounded-lg shadow border border-gray-800 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-gray-900">Seances recentes</h2>
-            <Link href="/sessions" className="text-sm text-blue-600 hover:text-blue-500">
+            <h2 className="text-lg font-semibold text-white">Seances recentes</h2>
+            <Link href="/sessions" className="text-sm text-white hover:text-gray-300">
               Voir tout
             </Link>
           </div>
 
           {recentSessions.length === 0 ? (
             <div className="text-center py-6">
-              <p className="text-gray-500 mb-2">Aucune seance</p>
-              <Link href="/sessions/new" className="text-blue-600 hover:text-blue-500 text-sm">
+              <p className="text-gray-400 mb-2">Aucune seance</p>
+              <Link href="/sessions/new" className="text-white hover:text-gray-300 text-sm">
                 Creer une seance
               </Link>
             </div>
@@ -244,12 +244,12 @@ export default async function ProfilePage() {
                 <Link
                   key={session.id}
                   href={`/sessions/${session.id}`}
-                  className="block p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                  className="block p-3 border border-gray-800 rounded-md hover:bg-gray-950 transition-colors"
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-medium text-gray-900">{session.name}</h3>
-                      <p className="text-sm text-gray-500">
+                      <h3 className="font-medium text-white">{session.name}</h3>
+                      <p className="text-sm text-gray-400">
                         {sportLabels[session.sport] || session.sport}
                         {session.estimatedDuration && ` - ${session.estimatedDuration} min`}
                       </p>

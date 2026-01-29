@@ -74,11 +74,11 @@ function ProgramCardComponent({ program }: ProgramCardProps) {
   return (
     <Link
       href={`/programs/${program.id}`}
-      className="block bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+      className="block bg-gray-900 rounded-lg shadow-md border border-gray-800 overflow-hidden hover:border-gray-700 hover:bg-gray-950 transition-all"
     >
       <div className="p-4">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg font-semibold text-gray-900 truncate">
+          <h3 className="text-lg font-semibold text-white truncate">
             {program.name}
           </h3>
           <div className="flex gap-1.5 flex-shrink-0 ml-2">
@@ -109,12 +109,12 @@ function ProgramCardComponent({ program }: ProgramCardProps) {
         </div>
 
         {program.description && (
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          <p className="text-sm text-gray-300 mb-3 line-clamp-2">
             {program.description}
           </p>
         )}
 
-        <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+        <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
           <span className="flex items-center">
             <svg
               className="w-4 h-4 mr-1"

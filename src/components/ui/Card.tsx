@@ -20,8 +20,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={`
-          bg-white rounded-lg shadow-card border border-gray-200
-          ${variant === "interactive" ? "hover:shadow-lg transition-shadow cursor-pointer" : ""}
+          bg-gray-900 rounded-lg shadow-card border border-gray-800
+          ${variant === "interactive" ? "hover:border-gray-700 hover:bg-gray-950 transition-all cursor-pointer" : ""}
           ${paddingStyles[padding]}
           ${className}
         `}
@@ -56,7 +56,7 @@ CardContent.displayName = "CardContent"
 export const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className = "", ...props }, ref) => {
     return (
-      <div ref={ref} className={`mt-4 pt-4 border-t border-gray-200 ${className}`} {...props} />
+      <div ref={ref} className={`mt-4 pt-4 border-t border-gray-800 ${className}`} {...props} />
     )
   }
 )

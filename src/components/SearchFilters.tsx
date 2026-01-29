@@ -115,7 +115,7 @@ export function SearchFilters({
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Rechercher..."
-          className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          className="block w-full pl-10 pr-3 py-2 border border-gray-800 rounded-md leading-5 bg-gray-900 text-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-gray-600 focus:border-gray-700 sm:text-sm"
         />
       </div>
 
@@ -125,7 +125,7 @@ export function SearchFilters({
           <select
             value={filters.sport}
             onChange={(e) => handleFilterChange("sport", e.target.value)}
-            className="block px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+            className="block px-3 py-2 border border-gray-800 rounded-md text-sm bg-gray-900 text-white focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-700"
           >
             {sportOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -139,7 +139,7 @@ export function SearchFilters({
           <select
             value={filters.difficulty}
             onChange={(e) => handleFilterChange("difficulty", e.target.value)}
-            className="block px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+            className="block px-3 py-2 border border-gray-800 rounded-md text-sm bg-gray-900 text-white focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-700"
           >
             {difficultyOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -157,16 +157,16 @@ export function SearchFilters({
               onChange={(e) => handleFilterChange("minDuration", e.target.value)}
               placeholder="Min"
               min="0"
-              className="w-20 px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="w-20 px-2 py-2 border border-gray-800 rounded-md text-sm bg-gray-900 text-white focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-700"
             />
-            <span className="text-gray-500 text-sm">-</span>
+            <span className="text-gray-400 text-sm">-</span>
             <input
               type="number"
               value={filters.maxDuration}
               onChange={(e) => handleFilterChange("maxDuration", e.target.value)}
               placeholder="Max"
               min="0"
-              className="w-20 px-2 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+              className="w-20 px-2 py-2 border border-gray-800 rounded-md text-sm bg-gray-900 text-white focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-700"
             />
             <span className="text-gray-500 text-sm">min</span>
           </div>
@@ -175,7 +175,7 @@ export function SearchFilters({
         {hasActiveFilters && (
           <button
             onClick={clearFilters}
-            className="inline-flex items-center px-3 py-2 text-sm text-gray-600 hover:text-gray-900"
+            className="inline-flex items-center px-3 py-2 text-sm text-gray-400 hover:text-white"
           >
             <svg
               className="h-4 w-4 mr-1"

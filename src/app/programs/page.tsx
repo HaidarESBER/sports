@@ -48,19 +48,19 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
   })
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Mes Programmes</h1>
-            <p className="mt-1 text-sm text-gray-600">
+            <h1 className="text-3xl font-bold text-white">Mes Programmes</h1>
+            <p className="mt-1 text-sm text-gray-400">
               Gerez vos programmes d&apos;entrainement
             </p>
           </div>
           <Link
             href="/programs/new"
-            className="mt-4 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="mt-4 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
           >
             <svg
               className="w-5 h-5 mr-2 -ml-1"
@@ -80,7 +80,7 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
         </div>
 
         {/* Sport filter tabs */}
-        <div className="mb-6 border-b border-gray-200">
+        <div className="mb-6 border-b border-gray-900">
           <nav className="-mb-px flex space-x-8 overflow-x-auto" aria-label="Tabs">
             {sportFilters.map((filter) => {
               const isActive = sportFilter === filter.id
@@ -90,8 +90,8 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
                   href={filter.id === "all" ? "/programs" : `/programs?sport=${filter.id}`}
                   className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
                     isActive
-                      ? "border-blue-500 text-blue-600"
-                      : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                      ? "border-white text-white"
+                      : "border-transparent text-gray-400 hover:text-white hover:border-gray-700"
                   }`}
                 >
                   {filter.label}
@@ -105,7 +105,7 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
         {programs.length === 0 ? (
           <div className="text-center py-12">
             <svg
-              className="mx-auto h-12 w-12 text-gray-400"
+              className="mx-auto h-12 w-12 text-gray-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -117,16 +117,16 @@ export default async function ProgramsPage({ searchParams }: PageProps) {
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
               />
             </svg>
-            <h3 className="mt-2 text-sm font-medium text-gray-900">
+            <h3 className="mt-2 text-sm font-medium text-white">
               Aucun programme
             </h3>
-            <p className="mt-1 text-sm text-gray-500">
+            <p className="mt-1 text-sm text-gray-400">
               Creez votre premier programme d&apos;entrainement!
             </p>
             <div className="mt-6">
               <Link
                 href="/programs/new"
-                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-black bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
               >
                 <svg
                   className="w-5 h-5 mr-2 -ml-1"
