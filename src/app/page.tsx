@@ -36,8 +36,9 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/register">
                 <Button 
+                  variant="primary"
                   size="lg" 
-                  className="bg-white text-black hover:bg-gray-100 font-medium px-8 py-4 text-base"
+                  className="font-medium"
                 >
                   Commencer
                 </Button>
@@ -46,7 +47,7 @@ export default function Home() {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="border-gray-800 text-white hover:bg-gray-900 font-medium px-8 py-4 text-base"
+                  className="font-medium"
                 >
                   Explorer
                 </Button>
@@ -212,8 +213,9 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/register">
               <Button 
+                variant="primary"
                 size="lg" 
-                className="bg-white text-black hover:bg-gray-100 font-medium px-8 py-4 text-base"
+                className="font-medium"
               >
                 Créer un compte
               </Button>
@@ -222,7 +224,7 @@ export default function Home() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-gray-800 text-white hover:bg-gray-900 font-medium px-8 py-4 text-base"
+                className="font-medium"
               >
                 Mode démo
               </Button>
