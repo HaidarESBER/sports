@@ -9,3 +9,4 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: dark)', color: '#1e40af' },
   ],
 }
+

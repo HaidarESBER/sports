@@ -4,36 +4,69 @@ import { useState } from "react"
 import { signIn } from "next-auth/react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useToast } from "@/components/Toast"
+import { Button } from "@/components/ui/Button"
+import { Input } from "@/components/ui/Input"
 
 export default function RegisterPage() {
   const router = useRouter()
+  const toast = useToast()
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [error, setError] = useState("")
+  const [emailError, setEmailError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [isCheckingEmail, setIsCheckingEmail] = useState(false)
+
+  async function checkEmailExists(emailToCheck: string) {
+    if (!emailToCheck || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToCheck)) {
+      setEmailError("")
+      return
+    }
+
+    setIsCheckingEmail(true)
+    try {
+      const response = await fetch(`/api/auth/check-email?email=${encodeURIComponent(emailToCheck)}`)
+      const data = await response.json()
+      
+      if (data.exists) {
+        setEmailError("Un compte existe déjà avec cet email")
+      } else {
+        setEmailError("")
+      }
+    } catch {
+      // Silently fail - we'll check on submit
+    } finally {
+      setIsCheckingEmail(false)
+    }
+  }
 
   function validateForm(): string | null {
     if (!email) {
-      return "Email is required"
+      return "L'email est requis"
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      return "Invalid email format"
+      return "Format d'email invalide"
+    }
+
+    if (emailError) {
+      return emailError
     }
 
     if (!password) {
-      return "Password is required"
+      return "Le mot de passe est requis"
     }
 
     if (password.length < 8) {
-      return "Password must be at least 8 characters"
+      return "Le mot de passe doit contenir au moins 8 caractères"
     }
 
     if (password !== confirmPassword) {
-      return "Passwords do not match"
+      return "Les mots de passe ne correspondent pas"
     }
 
     return null
@@ -42,6 +75,7 @@ export default function RegisterPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError("")
+    setEmailError("")
 
     const validationError = validateForm()
     if (validationError) {
@@ -61,14 +95,23 @@ export default function RegisterPage() {
       const data = await response.json()
 
       if (!response.ok) {
-        setError(data.error || "Registration failed")
+        if (response.status === 409) {
+          setEmailError(data.error || "Un compte existe déjà avec cet email")
+          toast.showToast(data.error || "Un compte existe déjà avec cet email", "error")
+        } else {
+          setError(data.error || "Erreur lors de l'inscription")
+          toast.showToast(data.error || "Erreur lors de l'inscription", "error")
+        }
         return
       }
 
+      toast.showToast("Compte créé avec succès !", "success")
       // Redirect to login with success message
       router.push("/login?registered=true")
     } catch {
-      setError("An error occurred. Please try again.")
+      const errorMsg = "Une erreur est survenue. Veuillez réessayer."
+      setError(errorMsg)
+      toast.showToast(errorMsg, "error")
     } finally {
       setIsLoading(false)
     }
@@ -81,64 +124,90 @@ export default function RegisterPage() {
 
   return (
     <>
-      <div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Create your account
+      <div className="text-center">
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
+          Créer votre compte
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Already have an account?{" "}
-          <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500">
-            Sign in
+        <p className="text-lg text-gray-600 mb-6">
+          Rejoignez la communauté SportPlan
+        </p>
+        <p className="text-sm text-gray-500">
+          Déjà un compte ?{" "}
+          <Link href="/login" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+            Se connecter
           </Link>
         </p>
       </div>
 
       {error && (
-        <div className="rounded-md bg-red-50 p-4">
-          <p className="text-sm text-red-700">{error}</p>
+        <div className="rounded-lg bg-red-50 border border-red-200 p-4 animate-fade-in">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-sm text-red-700 font-medium">{error}</p>
+          </div>
         </div>
       )}
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="rounded-md shadow-sm space-y-4">
+        <div className="space-y-5">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Name (optional)
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              Nom (optionnel)
             </label>
-            <input
+            <Input
               id="name"
               name="name"
               type="text"
               autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Your name"
+              placeholder="Votre nom"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email address
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Adresse email <span className="text-red-500">*</span>
             </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="you@example.com"
-            />
+            <div className="relative">
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                  setEmailError("")
+                }}
+                onBlur={(e) => checkEmailExists(e.target.value)}
+                placeholder="vous@exemple.com"
+                className={emailError ? "border-red-300 focus:border-red-500 focus:ring-red-500" : ""}
+              />
+              {isCheckingEmail && (
+                <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                  <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
+            </div>
+            {emailError && (
+              <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {emailError}
+              </p>
+            )}
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              Mot de passe <span className="text-red-500">*</span>
             </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
@@ -146,16 +215,20 @@ export default function RegisterPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Minimum 8 characters"
+              placeholder="Minimum 8 caractères"
             />
+            {password && password.length < 8 && (
+              <p className="mt-1 text-xs text-gray-500">
+                Le mot de passe doit contenir au moins 8 caractères
+              </p>
+            )}
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm password
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+              Confirmer le mot de passe <span className="text-red-500">*</span>
             </label>
-            <input
+            <Input
               id="confirmPassword"
               name="confirmPassword"
               type="password"
@@ -163,20 +236,30 @@ export default function RegisterPage() {
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="Confirm your password"
+              placeholder="Confirmez votre mot de passe"
+              className={confirmPassword && password !== confirmPassword ? "border-red-300 focus:border-red-500 focus:ring-red-500" : ""}
             />
+            {confirmPassword && password !== confirmPassword && (
+              <p className="mt-1 text-sm text-red-600 flex items-center gap-1">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Les mots de passe ne correspondent pas
+              </p>
+            )}
           </div>
         </div>
 
         <div>
-          <button
+          <Button
             type="submit"
-            disabled={isLoading}
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isLoading || !!emailError}
+            isLoading={isLoading}
+            className="w-full"
+            size="lg"
           >
-            {isLoading ? "Creating account..." : "Create account"}
-          </button>
+            Créer mon compte
+          </Button>
         </div>
       </form>
 

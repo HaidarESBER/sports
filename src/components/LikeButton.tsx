@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { useToast } from "@/components/Toast"
 
 type LikeButtonProps = {
   type: "program" | "session"
@@ -19,6 +20,7 @@ export function LikeButton({
   onLikeChange,
 }: LikeButtonProps) {
   const router = useRouter()
+  const toast = useToast()
   const [isLiked, setIsLiked] = useState(initialIsLiked)
   const [likesCount, setLikesCount] = useState(initialLikesCount)
   const [isLoading, setIsLoading] = useState(false)
@@ -49,6 +51,7 @@ export function LikeButton({
         setIsLiked(previousIsLiked)
         setLikesCount(previousCount)
         if (response.status === 401) {
+          toast.showToast("Connectez-vous pour liker ce contenu", "info")
           router.push("/login")
         }
       }
@@ -122,4 +125,5 @@ export function LikeButton({
     </button>
   )
 }
+
 
