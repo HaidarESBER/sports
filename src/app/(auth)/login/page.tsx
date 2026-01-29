@@ -4,21 +4,31 @@ import { Suspense, useState } from "react"
 import { signIn } from "next-auth/react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
+import { useToast } from "@/components/Toast"
+import { Button } from "@/components/ui/Button"
+import { Input } from "@/components/ui/Input"
 
 function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const toast = useToast()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"
+  const callbackUrl = searchParams.get("callbackUrl") || "/"
   const registeredSuccess = searchParams.get("registered") === "true"
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError("")
+
+    if (!email || !password) {
+      setError("Veuillez remplir tous les champs")
+      return
+    }
+
     setIsLoading(true)
 
     try {
@@ -29,12 +39,18 @@ function LoginForm() {
       })
 
       if (result?.error) {
-        setError("Invalid email or password")
+        const errorMsg = "Email ou mot de passe incorrect"
+        setError(errorMsg)
+        toast.showToast(errorMsg, "error")
       } else {
+        toast.showToast("Connexion réussie !", "success")
         router.push(callbackUrl)
+        router.refresh()
       }
     } catch {
-      setError("An error occurred. Please try again.")
+      const errorMsg = "Une erreur est survenue. Veuillez réessayer."
+      setError(errorMsg)
+      toast.showToast(errorMsg, "error")
     } finally {
       setIsLoading(false)
     }
@@ -47,39 +63,52 @@ function LoginForm() {
 
   return (
     <>
-      <div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to your account
+      <div className="text-center">
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
+          Connexion
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Or{" "}
-          <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500">
-            create a new account
+        <p className="text-lg text-gray-600 mb-6">
+          Accédez à votre compte SportPlan
+        </p>
+        <p className="text-sm text-gray-500">
+          Pas encore de compte ?{" "}
+          <Link href="/register" className="font-medium text-blue-600 hover:text-blue-500 transition-colors">
+            Créer un compte
           </Link>
         </p>
       </div>
 
       {registeredSuccess && (
-        <div className="rounded-md bg-green-50 p-4">
-          <p className="text-sm text-green-700">
-            Registration successful! Please sign in with your credentials.
-          </p>
+        <div className="rounded-lg bg-green-50 border border-green-200 p-4 animate-fade-in">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <p className="text-sm text-green-700 font-medium">
+              Inscription réussie ! Connectez-vous avec vos identifiants.
+            </p>
+          </div>
         </div>
       )}
 
       {error && (
-        <div className="rounded-md bg-red-50 p-4">
-          <p className="text-sm text-red-700">{error}</p>
+        <div className="rounded-lg bg-red-50 border border-red-200 p-4 animate-fade-in">
+          <div className="flex items-center gap-2">
+            <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="text-sm text-red-700 font-medium">{error}</p>
+          </div>
         </div>
       )}
 
       <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="rounded-md shadow-sm -space-y-px">
+        <div className="space-y-5">
           <div>
-            <label htmlFor="email" className="sr-only">
-              Email address
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              Adresse email <span className="text-red-500">*</span>
             </label>
-            <input
+            <Input
               id="email"
               name="email"
               type="email"
@@ -87,15 +116,14 @@ function LoginForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
+              placeholder="vous@exemple.com"
             />
           </div>
           <div>
-            <label htmlFor="password" className="sr-only">
-              Password
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              Mot de passe <span className="text-red-500">*</span>
             </label>
-            <input
+            <Input
               id="password"
               name="password"
               type="password"
@@ -103,20 +131,21 @@ function LoginForm() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
+              placeholder="Votre mot de passe"
             />
           </div>
         </div>
 
         <div>
-          <button
+          <Button
             type="submit"
             disabled={isLoading}
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            isLoading={isLoading}
+            className="w-full"
+            size="lg"
           >
-            {isLoading ? "Signing in..." : "Sign in"}
-          </button>
+            Se connecter
+          </Button>
         </div>
       </form>
 

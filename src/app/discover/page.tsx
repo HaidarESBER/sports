@@ -1,6 +1,7 @@
 import { Suspense } from "react"
 import { auth } from "@/lib/auth"
 import { DiscoverTabs } from "./DiscoverTabs"
+import { DemoBanner } from "@/components/DemoBanner"
 
 type PageProps = {
   searchParams: Promise<{ tab?: string }>
@@ -10,15 +11,17 @@ export default async function DiscoverPage({ searchParams }: PageProps) {
   const session = await auth()
   const params = await searchParams
   const initialTab = (params.tab as "programs" | "sessions" | "users") || "programs"
+  const isAuthenticated = !!session?.user?.id
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {!isAuthenticated && <DemoBanner />}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Decouvrir</h1>
-          <p className="mt-1 text-sm text-gray-600">
-            Explorez les programmes, seances et utilisateurs publics
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Découvrir</h1>
+          <p className="text-lg text-gray-600">
+            Explorez les programmes, séances et utilisateurs publics
           </p>
         </div>
 

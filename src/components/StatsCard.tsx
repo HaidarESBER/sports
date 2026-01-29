@@ -69,3 +69,4 @@ export function StatsCard({ title, value, subtitle, trend, icon }: StatsCardProp
   )
 }
 
+

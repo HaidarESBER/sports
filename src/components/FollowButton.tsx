@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
+import { useToast } from "@/components/Toast"
 
 type FollowButtonProps = {
   userId: string
@@ -9,6 +11,8 @@ type FollowButtonProps = {
 }
 
 export function FollowButton({ userId, isFollowing: initialIsFollowing, onFollowChange }: FollowButtonProps) {
+  const router = useRouter()
+  const toast = useToast()
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -24,8 +28,18 @@ export function FollowButton({ userId, isFollowing: initialIsFollowing, onFollow
         const newIsFollowing = !isFollowing
         setIsFollowing(newIsFollowing)
         onFollowChange?.(newIsFollowing)
+        toast.showToast(
+          newIsFollowing ? "Vous suivez maintenant cet utilisateur" : "Vous ne suivez plus cet utilisateur",
+          "success"
+        )
       } else {
-        console.error("Failed to update follow status")
+        if (response.status === 401) {
+          toast.showToast("Connectez-vous pour suivre cet utilisateur", "info")
+          router.push("/login")
+        } else {
+          console.error("Failed to update follow status")
+          toast.showToast("Erreur lors de la mise à jour", "error")
+        }
       }
     } catch (error) {
       console.error("Error updating follow status:", error)

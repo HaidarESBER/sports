@@ -344,3 +344,4 @@ export default function WorkoutDetailPage({ params }: PageProps) {
   )
 }
 
+

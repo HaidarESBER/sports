@@ -1,13 +1,16 @@
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
-import Database from 'better-sqlite3'
 import bcrypt from 'bcryptjs'
+import dotenv from 'dotenv'
 
-// Get database path from env or default
-const dbUrl = process.env.DATABASE_URL || 'file:./dev.db'
-const dbPath = dbUrl.replace(/^file:/, '')
-const sqlite = new Database(dbPath)
-const adapter = new PrismaBetterSqlite3(sqlite)
+// Load environment variables
+dotenv.config()
+
+// Use exact same pattern as db.ts - ensure URL is a string
+const dbUrl: string = (process.env.DATABASE_URL || 'file:./dev.db').toString()
+const adapter = new PrismaBetterSqlite3({
+  url: dbUrl
+})
 const prisma = new PrismaClient({ adapter })
 
 async function main() {
