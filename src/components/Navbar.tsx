@@ -60,12 +60,12 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <nav className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary-600">SportPlan</span>
+            <span className="text-2xl font-bold text-white">SportPlan</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -76,8 +76,8 @@ export function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 text-sm font-medium transition-default ${
                   isActive(link.href)
-                    ? "text-primary-600 border-b-2 border-primary-600"
-                    : "text-gray-700 hover:text-primary-600"
+                    ? "text-white border-b-2 border-white"
+                    : "text-gray-400 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -129,32 +129,32 @@ export function Navbar() {
                         className="fixed inset-0 z-10"
                         onClick={() => setShowUserMenu(false)}
                       />
-                      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-20">
+                      <div className="absolute right-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg border border-gray-800 py-1 z-20">
                         <Link
                           href="/profile"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Profil
                         </Link>
                         <Link
                           href="/feed"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Mon Feed
                         </Link>
                         <Link
                           href="/progress"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white"
                           onClick={() => setShowUserMenu(false)}
                         >
                           Progression
                         </Link>
-                        <hr className="my-1 border-gray-200" />
+                        <hr className="my-1 border-gray-800" />
                         <button
                           onClick={handleSignOut}
-                          className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                          className="block w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-gray-800 hover:text-red-300"
                         >
                           Déconnexion
                         </button>
@@ -197,13 +197,13 @@ export function Navbar() {
                 <div className="hidden md:flex md:items-center md:gap-3">
                   <Link
                     href="/login"
-                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-default"
+                    className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-default"
                   >
                     Connexion
                   </Link>
                   <Link
                     href="/register"
-                    className="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 transition-default"
+                    className="px-4 py-2 text-sm font-medium text-black bg-white rounded-md hover:bg-gray-100 transition-default"
                   >
                     Inscription
                   </Link>
@@ -233,7 +233,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {showMobileMenu && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-gray-900 py-4">
             <div className="space-y-1">
               {navLinks.map((link) => (
                 <Link
@@ -242,8 +242,8 @@ export function Navbar() {
                   onClick={() => setShowMobileMenu(false)}
                   className={`block px-3 py-2 text-base font-medium rounded-md ${
                     isActive(link.href)
-                      ? "bg-primary-50 text-primary-600"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-gray-900 text-white"
+                      : "text-gray-400 hover:bg-gray-900 hover:text-white"
                   }`}
                 >
                   {link.label}
@@ -254,21 +254,21 @@ export function Navbar() {
                   <Link
                     href="/profile"
                     onClick={() => setShowMobileMenu(false)}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                    className="block px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-900 hover:text-white rounded-md"
                   >
                     Profil
                   </Link>
                   <Link
                     href="/feed"
                     onClick={() => setShowMobileMenu(false)}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                    className="block px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-900 hover:text-white rounded-md"
                   >
                     Mon Feed
                   </Link>
                   <Link
                     href="/progress"
                     onClick={() => setShowMobileMenu(false)}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                    className="block px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-900 hover:text-white rounded-md"
                   >
                     Progression
                   </Link>
@@ -277,7 +277,7 @@ export function Navbar() {
                       setShowMobileMenu(false)
                       handleSignOut()
                     }}
-                    className="block w-full text-left px-3 py-2 text-base font-medium text-red-600 hover:bg-gray-50 rounded-md"
+                    className="block w-full text-left px-3 py-2 text-base font-medium text-red-400 hover:bg-gray-900 hover:text-red-300 rounded-md"
                   >
                     Déconnexion
                   </button>
@@ -287,14 +287,14 @@ export function Navbar() {
                   <Link
                     href="/login"
                     onClick={() => setShowMobileMenu(false)}
-                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-md"
+                    className="block px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-900 hover:text-white rounded-md"
                   >
                     Connexion
                   </Link>
                   <Link
                     href="/register"
                     onClick={() => setShowMobileMenu(false)}
-                    className="block px-3 py-2 text-base font-medium text-white bg-primary-600 rounded-md hover:bg-primary-700 text-center"
+                    className="block px-3 py-2 text-base font-medium text-black bg-white rounded-md hover:bg-gray-100 text-center"
                   >
                     Inscription
                   </Link>
